@@ -1,6 +1,6 @@
 var keys = require('./keys');
 var fs = require("fs");
-
+var request = require("request");
 var answer = process.argv[2];
 var secondVar = process.argv[3];
 
@@ -65,14 +65,18 @@ function spotify() {
 	console.log(data.tracks.href); 
 	
 		});
-	
-		};
+	};
 function movie() {
 
-	$.ajax({
-	queryurl: "http://www.omdbapi.com/?apikey=40e9cece&" + secondVar,
-	method: "GET"
-	}).done( function (data) {
-		console.log(data);
-	})
+	options = {  
+		url: "http://www.omdbapi.com/?apikey=40e9cece&t="+secondVar,
+		method: 'GET',
+	};
+
+	request(options, function(err, res, body) {  
+		console.log(
+			JSON.parse(body.title)
+		);
+	});
+
 };
