@@ -75,7 +75,7 @@ function movie() {
 
 	request(options, function(err, res, body) {  
 		console.log(
-			JSON.parse(body.title)
+			JSON.parse(body)
 		);
 	});
 
