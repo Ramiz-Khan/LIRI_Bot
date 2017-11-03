@@ -19,7 +19,7 @@ var secondVar = process.argv[3];
 	break;
 
 	case "do-what-it-says":
-	return console.log("what it says worked");
+	whatSays();
 	break;
 
 
@@ -80,3 +80,8 @@ function movie() {
 	});
 
 };
+
+function whatSays() {
+	var file = fs.writeFile("./random.txt");
+	console.log(file);
+}
